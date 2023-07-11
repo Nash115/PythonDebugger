@@ -67,7 +67,7 @@ debug.show()
 </tr>
 </table>
 
-## API Reference
+## API Reference (of the Debug class)
 
 ### Settings variables :
 
