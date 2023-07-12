@@ -33,8 +33,6 @@ variable_2 = "Hello, world!"
 
 debug = debugger.Debug()
 debug.addVariables(["variable_1","variable_2"])
-debug.maxLenOfLogs = 10 # Defines the number of maximum values in the history of variables
-debug.logEqualsValues = False # Defines if a value should be added to the history if it has not been modified since the last refresh.
 
 for i in range(100000):
     variable_1 += 1
@@ -59,8 +57,82 @@ debug.show()
  - 100000
 
 ########## variable_2 ##########
+ - Hello, world! (x100000)
+
+```
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+```python
+import debugger
+
+variable_1 = 0
+variable_2 = "Hello, world!"
+
+debug = debugger.Debug()
+debug.addVariables(["variable_1","variable_2"])
+debug.maxLenOfLogs = 3
+debug.logEqualsValues = True
+
+for i in range(100000):
+    variable_1 += 1
+    debug.update()
+debug.show()
+```
+
+</td>
+<td>
+
+```
+########## variable_1 ##########
+ - 99998
+ - 99999
+ - 100000
+
+########## variable_2 ##########
+ - Hello, world!
+ - Hello, world!
  - Hello, world!
 
+```
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+```python
+import debugger
+
+variable_1 = 0
+variable_2 = "Hello, world!"
+
+debug = debugger.Debug()
+debug.addVariables(["variable_1","variable_2"])
+debug.maxLenOfLogs = 3
+debug.logEqualsValues = True
+debug.oneLineValues = True
+
+for i in range(100000):
+    variable_1 += 1
+    debug.update()
+debug.show()
+```
+
+</td>
+<td>
+
+```
+########## variable_1 ##########
+[99998, 99999, 100000]
+
+########## variable_2 ##########
+['Hello, world!', 'Hello, world!', 'Hello, world!']
 ```
 
 </td>
@@ -72,7 +144,7 @@ debug.show()
 ### Settings variables :
 
 - ```maxLenOfLogs (initial: 10)``` The max lengh of the history for each variables
-- ```logEqualsValues (initial: True)``` Defines if a value should be added to the history if it has not been modified since the last refresh.
+- ```logEqualsValues (initial: False)``` Defines if a value should be added to the history if it has not been modified since the last refresh.
 - ```oneLineValues (initial: False)``` Defines whether the result should be displayed as a tab, in a single line
 
 
