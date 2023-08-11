@@ -7,7 +7,10 @@ A python program that allows you to easily debug pythons programs and see the hi
 
 [Download the lastest version of the debugger](https://github.com/Nash115/PythonDebugger/releases)
 
-Import the debugger in your program : (It must be in the same folder as your program) and create an instance of the Debug class
+> [!IMPORTANT]
+> The file must be in the same folder as your program.
+
+Import the debugger in your program and create an instance of the Debug class
 ```
 import debugger
 
